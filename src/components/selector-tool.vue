@@ -45,10 +45,29 @@ document.onmousedown = (ev:MouseEvent)=>{
 }
 document.onmouseup = (ev:MouseEvent)=>{
     const {clientX, clientY} = ev
-    const left = clientX < x.value ? clientX : x.value
-    const top = clientY < y.value ? clientY : y.value
-    const right = clientX > x.value ? clientX : x.value
-    const bottom = clientY > y.value ? clientY : y.value
+    let left, top, right, bottom
+
+    if(clientX > x.value)
+    {
+        left = x.value
+        right = clientX
+    }
+    else
+    {
+        left = clientX
+        right = x.value
+    }
+    if(clientY > y.value)
+    {
+        top = y.value
+        bottom = clientY
+    }
+    else
+    {
+        top = clientY
+        bottom = y.value
+    }
+    
     emit('select',{
         left: left,
         top: top,
