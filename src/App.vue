@@ -19,4 +19,7 @@ const selection = ref()
   align-items: center;
   height: 100vh;
 }
+body{
+  margin: 0px;
+}
 </style>
